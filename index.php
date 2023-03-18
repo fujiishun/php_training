@@ -1,3 +1,4 @@
+<?php include('header.php'); ?>
 <form method="post">
 <input type="submit" name="keiji">
 </form>
@@ -8,3 +9,4 @@ if (isset($_POST['keiji'])) {
   exit;
 }
 ?>
+<?php include('footer.php'); ?>

@@ -1,3 +1,10 @@
+<form method="post">
+<input type="submit" name="keiji">
+</form>
+
 <?php
-  echo "Hello";
-  ?>
+if (isset($_POST['keiji'])) {
+  header("Location:http://localhost:8888/php_lesson01/keiji.php");
+  exit;
+}
+?>

@@ -1,10 +1,4 @@
-<form action="send.php" method="post">
-  <input type="text" name="name">
-  <input type="text" name="comment">
-  <input type="text" name="password">
-  <input type="submit" value="書き込む">
-</form>
-<br/>
+<?php include('header.php'); ?>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -14,28 +8,17 @@
     </head>
     <body>
     <form action="upload.php" method="post" enctype="multipart/form-data">
+    title:
+    <input type="text" name="title"><br/>
+    comments:
+    <input type="text" name="text"><br/>
     アップロードする画像ファイルを選択する:
     <input type="file" name="file">
     <input type="submit" name="submit" value="Upload">
     </form>
     <div>
-    <?php
-    // データベース設定ファイルを含む
-    include 'dbConfig.php';
-
-    // データベースから画像を取得する
-    $query = $db->query("SELECT * FROM images ORDER BY uploaded_on DESC");
-
-    if($query->num_rows > 0){
-        while($row = $query->fetch_assoc()){
-            $imageURL = 'uploads/'.$row["file_name"];
-    ?>
-        <img src="<?php echo $imageURL; ?>" alt="" />
-    <?php }
-    }else{ ?>
-        <p>画像が見つからず表示されません..
-        </p>
-    <?php } ?>
+    
     </div>
     </body>
 </html>
+<?php include('footer.php'); ?>

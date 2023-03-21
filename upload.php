@@ -5,6 +5,8 @@ $statusMsg = '';
 
 // ファイルのアップロード先
 $targetDir = "uploads/";
+$title = $_POST["title"];
+$text = $_POST["text"];
 $fileName = basename($_FILES["file"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
@@ -16,7 +18,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
         // サーバーにファイルをアップロード
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
             // データベースに画像ファイル名を挿入
-            $insert = $db->query("INSERT into images (file_name, uploaded_on) VALUES ('".$fileName."', NOW())");
+            $insert = $db->query("INSERT into images (title, text, file_name, uploaded_on) VALUES ('".$title."','".$text."','".$fileName."', NOW())");
             if($insert){
                 $statusMsg = " ".$fileName. " が正常にアップロードされました";
             }else{

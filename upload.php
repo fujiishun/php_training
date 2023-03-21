@@ -37,3 +37,5 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 // ステータスメッセージを表示
 echo $statusMsg;
 ?>
+<br/>
+<a href="http://localhost:8888/php_lesson01/">Home</a>

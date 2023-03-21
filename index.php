@@ -1,12 +1,29 @@
 <?php include('header.php'); ?>
-<form method="post">
-<input type="submit" name="keiji">
-</form>
 
 <?php
-if (isset($_POST['keiji'])) {
-  header("Location:http://localhost:8888/php_lesson01/keiji.php");
-  exit;
-}
-?>
+    // データベース設定ファイルを含む
+    include 'dbConfig.php';
+
+    // データベースから画像を取得する
+    $query = $db->query("SELECT * FROM images ORDER BY uploaded_on DESC");
+
+    if($query->num_rows > 0){
+        while($row = $query->fetch_assoc()){
+            $title = $row["title"];
+            $imageURL = 'uploads/'.$row["file_name"];
+            $text = $row["text"];
+    ?>
+        <?php echo "タイトル： ".$title;
+        ?>
+        <br/>
+        <img src="<?php echo $imageURL; ?>" width="200" height="140" alt="" /><br/>
+        <?php echo "本文： ".$text;
+        ?><br/>
+        <a href="confirm.php?id=<?php print($row['id']) ?>">削除</a><hr/>
+    <?php }
+    }else{ ?>
+        <p>投稿が見つからず表示されません..
+        </p>
+    <?php } ?>
+
 <?php include('footer.php'); ?>

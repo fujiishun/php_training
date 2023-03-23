@@ -15,6 +15,8 @@
             $id = $_GET['id']; // DELETEするレコードのID
             $sql = "DELETE FROM images WHERE id=$id";
             $stmt = $dbh->query($sql); // DELETE文実行
+            $sql1 = "ALTER TABLE `images` auto_increment = 1;";
+            $stmt = $dbh->query($sql1); // DELETE文実行
             print "レコードを削除しました";
             echo '<br/><a href="http://localhost:8888/php_lesson01/">Home</a>';
 

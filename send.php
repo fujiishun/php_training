@@ -16,9 +16,6 @@
     <input type="file" name="file">
     <input type="submit" name="submit" value="Upload">
     </form>
-    <div>
-    
-    </div>
     </body>
 </html>
 <?php include('footer.php'); ?>

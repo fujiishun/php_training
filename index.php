@@ -1,7 +1,6 @@
 <?php include('header.php'); ?>
 
 <?php
-session_start();
     // データベース設定ファイルを含む
     include 'dbConfig.php';
 
@@ -15,9 +14,10 @@ session_start();
             $imageURL = 'uploads/'.$row["file_name"];
             $text = $row["text"];
     ?>
-        <?php echo "id:".$id;
-              echo '<br>';
-              echo "タイトル： ".$title;
+        <a href="editPage.php?id=<?php print($row['id']) ?>">
+            <?php echo "id:".$id;
+            echo '</a><br>';
+            echo "タイトル： ".$title;
         ?>
         <br/>
         <img src="<?php echo $imageURL; ?>" width="200" height="140" alt="" /><br/>

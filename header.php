@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="style.css">
   <title>藤井トレーニングサイト</title>
 </head>
-<body>
 <!-- header -->
 <header>
   <h1 class="headline">
@@ -16,8 +15,8 @@
       <a href="http://localhost:8888/php_lesson01/">Home</a>
     </li>
     <li class="nav-list-item"><a href="http://localhost:8888/php_lesson01/send.php">Send</a></li>
-    <li class="nav-list-item">Topic</li>
+    <li class="nav-list-item"><a href="http://localhost:8888/php_lesson01/searchPage.php">Search</a></li>
   </ul>
 </header>
-</body>
+<body>
 </html>

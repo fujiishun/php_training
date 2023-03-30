@@ -26,7 +26,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
     $stmt = $db->query($sql2);
     }
     if($text){
-    $sql3 = "UPDATE images SET title = text = '$text' WHERE id = $id";
+    $sql3 = "UPDATE images SET text = '$text' WHERE id = $id";
     $stmt = $db->query($sql3);
     }
     if($sql1 || $sql2 || $sql3){
